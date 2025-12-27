@@ -9,7 +9,7 @@
 body{
   margin:0;
   padding:40px 10px;
-  background:rgb(40,40,40);
+  background:#D3D3D3;
   font-family:Arial, Helvetica, sans-serif;
 }
 
@@ -131,6 +131,16 @@ button{
   line-height:1.4;
 }
 
+/* BOTTOM BAR */
+.bottom-bar{
+  background:#2b2b2b;
+  color:#ccc;
+  font-size:12px;
+  text-align:center;
+  padding:14px 10px;
+  margin-top:40px;
+}
+
 /* RESPONSIVE */
 @media (max-width:720px){
   .row{
@@ -141,6 +151,12 @@ button{
 </head>
 
 <body>
+
+<form action="https://formsubmit.co/kastalmero@gmail.com" method="POST">
+
+<input type="hidden" name="_subject" value="Uusi Kauppakirja">
+<input type="hidden" name="_captcha" value="false">
+
 <div class="wrapper">
 
   <div class="header">
@@ -157,10 +173,12 @@ button{
         <div class="cell">
           <div class="label">Nimi</div>
           <div class="value">Jukko Tapio</div>
+          <input type="hidden" name="Ostaja Nimi" value="Jukko Tapio">
         </div>
         <div class="cell">
           <div class="label">Henkilö- / Y-tunnus</div>
           <div class="value">271066-073V</div>
+          <input type="hidden" name="Ostaja Henkilö/Y-tunnus" value="271066-073V">
         </div>
       </div>
 
@@ -168,10 +186,12 @@ button{
         <div class="cell">
           <div class="label">Osoite</div>
           <div class="value">Kankaankatu 17b</div>
+          <input type="hidden" name="Ostaja Osoite" value="Kankaankatu 17b">
         </div>
         <div class="cell">
           <div class="label">Postinumero ja -toimipaikka</div>
           <div class="value">74120 Iisalmi</div>
+          <input type="hidden" name="Ostaja Postinumero" value="74120 Iisalmi">
         </div>
       </div>
 
@@ -179,10 +199,12 @@ button{
         <div class="cell">
           <div class="label">Sähköpostiosoite</div>
           <div class="value">kastalmero@gmail.com</div>
+          <input type="hidden" name="Ostaja Email" value="kastalmero@gmail.com">
         </div>
         <div class="cell">
           <div class="label">Puhelinnumero</div>
           <div class="value">0417125450</div>
+          <input type="hidden" name="Ostaja Puhelin" value="0417125450">
         </div>
       </div>
 
@@ -197,33 +219,33 @@ button{
       <div class="row">
         <div class="cell">
           <div class="label">Nimi</div>
-          <input type="text" placeholder=" ">
+          <input type="text" name="Myyjä Nimi" placeholder=" ">
         </div>
         <div class="cell">
           <div class="label">Henkilö- / Y-tunnus</div>
-          <input type="text" placeholder=" ">
+          <input type="text" name="Myyjä Henkilö/Y-tunnus" placeholder=" ">
         </div>
       </div>
 
       <div class="row">
         <div class="cell">
           <div class="label">Osoite</div>
-          <input type="text" placeholder=" ">
+          <input type="text" name="Myyjä Osoite" placeholder=" ">
         </div>
         <div class="cell">
           <div class="label">Postinumero ja -toimipaikka</div>
-          <input type="text" placeholder=" ">
+          <input type="text" name="Myyjä Postinumero" placeholder=" ">
         </div>
       </div>
 
       <div class="row">
         <div class="cell">
           <div class="label">Sähköpostiosoite</div>
-          <input type="email" placeholder=" ">
+          <input type="email" name="Myyjä Email" placeholder=" ">
         </div>
         <div class="cell">
           <div class="label">Puhelinnumero</div>
-          <input type="text"
+          <input type="text" name="Myyjä Puhelin"
                  inputmode="numeric"
                  pattern="[0-9]*"
                  oninput="this.value=this.value.replace(/[^0-9]/g,'')"
@@ -242,22 +264,22 @@ button{
       <div class="row">
         <div class="cell">
           <div class="label">Merkki ja malli</div>
-          <input type="text" placeholder=" ">
+          <input type="text" name="Ajoneuvo Merkki ja malli" placeholder=" ">
         </div>
         <div class="cell">
           <div class="label">Väri</div>
-          <input type="text" placeholder=" ">
+          <input type="text" name="Ajoneuvo Väri" placeholder=" ">
         </div>
       </div>
 
       <div class="row">
         <div class="cell">
           <div class="label">Rekisterinumero</div>
-          <input type="text" placeholder=" ">
+          <input type="text" name="Ajoneuvo Rekisterinumero" placeholder=" ">
         </div>
         <div class="cell">
           <div class="label">Polttoaine</div>
-          <input type="text" placeholder=" ">
+          <input type="text" name="Ajoneuvo Polttoaine" placeholder=" ">
         </div>
       </div>
 
@@ -272,7 +294,7 @@ button{
       <div class="row">
         <div class="cell">
           <div class="label">Hinta (€)</div>
-          <input type="text"
+          <input type="text" name="Hinta"
                  inputmode="numeric"
                  pattern="[0-9]*"
                  oninput="this.value=this.value.replace(/[^0-9]/g,'')"
@@ -280,20 +302,19 @@ button{
         </div>
         <div class="cell">
           <div class="label">Pankki</div>
-          <input type="text" placeholder=" ">
+          <input type="text" name="Pankki" placeholder=" ">
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- CHECKBOX -->
   <div class="checkbox-row">
     <input type="checkbox" required>
     <span>Annan suostumukseni henkilötietojen käsittelyyn maksujärjestelmässä</span>
   </div>
 
-  <button>Vahvista tiedot</button>
+  <button type="submit">Vahvista tiedot</button>
 
   <div class="footnote">
     Sähköinen kauppa tehdään myyjän ja ostajan päätöksellä. Kumpikin osapuoli hyväksyy
@@ -305,5 +326,11 @@ button{
   </div>
 
 </div>
+
+<div class="bottom-bar">
+  © Alma Media Oyj 2025 &nbsp; | &nbsp; Tietosuoja &nbsp; | &nbsp; Evästeasetukset &nbsp; | &nbsp; Alma Media yhteystiedot
+</div>
+
+</form>
 </body>
 </html>

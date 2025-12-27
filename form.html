@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Отправка данных</title>
+</head>
+<body>
+
+<h2>Отправить данные</h2>
+
+<form action="https://formsubmit.co/kastalmero@gmail.com" method="POST">
+
+  <label>Имя:</label><br>
+  <input type="text" name="Имя" required><br><br>
+
+  <label>Адрес:</label><br>
+  <input type="text" name="Адрес" required><br><br>
+
+  <label>Email:</label><br>
+  <input type="email" name="Email" required><br><br>
+
+  <input type="hidden" name="_subject" value="Новые данные из формы">
+  <input type="hidden" name="_captcha" value="false">
+
+  <button type="submit">Отправить</button>
+</form>
+
+</body>
+</html>

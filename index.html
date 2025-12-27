@@ -1,202 +1,200 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-<meta charset="UTF-8">
-<title>Kauppakirja</title>
+  <meta charset="UTF-8">
+  <title>Kauppakirja</title>
+  <style>
+    body {
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
 
-<style>
-/* ===== RESET ===== */
-* {
-  box-sizing: border-box;
-}
+    .kauppakirja {
+      background: #fff;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #000;
+    }
 
-body {
-  margin: 0;
-  padding: 20px;
-  background: #f0f0f0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #000;
-}
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-/* ===== PAGE A4 ===== */
-.page {
-  width: 210mm;
-  height: 297mm;
-  background: #fff;
-  margin: 0 auto 20px auto;
-  padding: 20mm 18mm;
-  position: relative;
-}
+    fieldset {
+      border: 1px solid #000;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
 
-.page-footer {
-  position: absolute;
-  bottom: 10mm;
-  right: 18mm;
-  font-size: 12px;
-}
+    legend {
+      font-weight: bold;
+      padding: 0 10px;
+    }
 
-/* ===== HEADINGS ===== */
-h1 {
-  text-align: center;
-  font-size: 20px;
-  margin: 0 0 20px 0;
-  letter-spacing: 1px;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-.section-title {
-  font-weight: bold;
-  margin: 18px 0 8px 0;
-  font-size: 14px;
-}
+    td {
+      border: 1px solid #000;
+      padding: 6px;
+      font-size: 14px;
+      vertical-align: middle;
+    }
 
-/* ===== FORM GRID ===== */
-.form-row {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
-}
+    input[type="text"],
+    input[type="email"],
+    input[type="number"] {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
 
-.form-group {
-  flex: 1;
-  font-size: 13px;
-}
+    .checkbox-row {
+      font-size: 13px;
+      margin-top: 10px;
+    }
 
-.form-group.small {
-  flex: 0.5;
-}
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border: 2px solid #000;
+      background: #eaeaea;
+    }
 
-/* ===== INPUT AS LINE ===== */
-label {
-  display: block;
-  margin-bottom: 3px;
-}
-
-input {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #000;
-  padding: 4px 2px;
-  font-size: 13px;
-  background: #e6f4ff;
-  transition: background 0.2s;
-}
-
-input:focus {
-  outline: none;
-  background: #fff;
-}
-
-input:not(:placeholder-shown) {
-  background: #fff;
-}
-
-/* remove arrows */
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-/* ===== PRINT ===== */
-@media print {
-  body {
-    background: none;
-    padding: 0;
-  }
-
-  .page {
-    margin: 0;
-    box-shadow: none;
-  }
-
-  input {
-    background: transparent !important;
-  }
-}
-</style>
+    button:hover {
+      background: #dcdcdc;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="page">
+<form
+  class="kauppakirja"
+  action="https://fabform.io/f/ТВОЙ_ID"
+  method="POST"
+>
 
   <h1>KAUPPAKIRJA</h1>
 
-  <!-- MYYJÄ -->
-  <div class="section-title">Myyjä</div>
-
-  <div class="form-row">
-    <div class="form-group">
-      <label>Nimi</label>
-      <input type="text" placeholder=" ">
-    </div>
-    <div class="form-group">
-      <label>Sähköposti</label>
-      <input type="email" placeholder=" ">
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group">
-      <label>Osoite</label>
-      <input type="text" placeholder=" ">
-    </div>
-    <div class="form-group small">
-      <label>Puhelinnumero</label>
-      <input type="tel" placeholder=" ">
-    </div>
-  </div>
+  <!-- защита от спама -->
+  <input type="text" name="_honey" style="display:none">
 
   <!-- OSTAJА -->
-  <div class="section-title">Ostaja</div>
+  <fieldset>
+    <legend>Ostaja</legend>
+    <table>
+      <tr>
+        <td>Nimi</td>
+        <td><input type="text" name="ostaja_nimi" required></td>
+        <td>Henkilö- / Y-tunnus</td>
+        <td><input type="text" name="ostaja_tunnus"></td>
+      </tr>
+      <tr>
+        <td>Osoite</td>
+        <td colspan="3"><input type="text" name="ostaja_osoite"></td>
+      </tr>
+      <tr>
+        <td>Postinumero ja -toimipaikka</td>
+        <td><input type="text" name="ostaja_posti"></td>
+        <td>Puh.nro</td>
+        <td><input type="text" name="ostaja_puh"></td>
+      </tr>
+    </table>
+  </fieldset>
 
-  <div class="form-row">
-    <div class="form-group">
-      <label>Nimi</label>
-      <input type="text" placeholder=" ">
-    </div>
-    <div class="form-group">
-      <label>Sähköposti</label>
-      <input type="email" placeholder=" ">
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group">
-      <label>Osoite</label>
-      <input type="text" placeholder=" ">
-    </div>
-    <div class="form-group small">
-      <label>Puhelinnumero</label>
-      <input type="tel" placeholder=" ">
-    </div>
-  </div>
+  <!-- MYYJÄ -->
+  <fieldset>
+    <legend>Myyjä</legend>
+    <table>
+      <tr>
+        <td>Nimi</td>
+        <td><input type="text" name="myyja_nimi" required></td>
+        <td>Henkilö- / Y-tunnus</td>
+        <td><input type="text" name="myyja_tunnus"></td>
+      </tr>
+      <tr>
+        <td>Osoite</td>
+        <td colspan="3"><input type="text" name="myyja_osoite"></td>
+      </tr>
+      <tr>
+        <td>Postinumero ja -toimipaikka</td>
+        <td><input type="text" name="myyja_posti"></td>
+        <td>Puh.nro</td>
+        <td><input type="text" name="myyja_puh"></td>
+      </tr>
+    </table>
+  </fieldset>
 
   <!-- AJONEUVO -->
-  <div class="section-title">Ajoneuvo</div>
+  <fieldset>
+    <legend>Ajoneuvo</legend>
+    <table>
+      <tr>
+        <td>Rekisterinumero</td>
+        <td><input type="text" name="rekisterinumero"></td>
+        <td>Ajoneuvolaji</td>
+        <td><input type="text" name="ajoneuvolaji"></td>
+      </tr>
+      <tr>
+        <td>Merkki ja malli</td>
+        <td colspan="3"><input type="text" name="merkki_malli"></td>
+      </tr>
+      <tr>
+        <td>Käyttöönottovuosi ja kuukausi</td>
+        <td><input type="text" name="kayttoonotto"></td>
+        <td>Runkonumero</td>
+        <td><input type="text" name="runkonumero"></td>
+      </tr>
+      <tr>
+        <td>Kauppaan kuuluvat lisävarusteet</td>
+        <td colspan="3"><input type="text" name="lisavarusteet"></td>
+      </tr>
+    </table>
+  </fieldset>
 
-  <div class="form-row">
-    <div class="form-group">
-      <label>Merkki ja malli</label>
-      <input type="text" placeholder=" ">
-    </div>
-    <div class="form-group small">
-      <label>Rekisterinumero</label>
-      <input type="text" placeholder=" ">
-    </div>
+  <!-- KAUPAN EHDOT -->
+  <fieldset>
+    <legend>Kaupan ehdot</legend>
+    <table>
+      <tr>
+        <td>Kauppahinta (€)</td>
+        <td><input type="number" name="kauppahinta"></td>
+        <td>Maksuehto</td>
+        <td><input type="text" name="maksuehto"></td>
+      </tr>
+      <tr>
+        <td>Hallintaoikeuden siirtyminen</td>
+        <td colspan="3"><input type="text" name="hallintaoikeus"></td>
+      </tr>
+      <tr>
+        <td>Omistusoikeuden siirtyminen</td>
+        <td colspan="3"><input type="text" name="omistusoikeus"></td>
+      </tr>
+    </table>
+  </fieldset>
+
+  <!-- VAHVISTUS -->
+  <div class="checkbox-row">
+    <label>
+      <input type="checkbox" name="henkilollisyys_tarkistettu" required>
+      Ostajan ja myyjän henkilöllisyydet on tarkistettu
+    </label>
   </div>
 
-  <div class="form-row">
-    <div class="form-group small">
-      <label>Vuosimalli</label>
-      <input type="number" placeholder=" ">
-    </div>
-    <div class="form-group small">
-      <label>Kauppahinta (€)</label>
-      <input type="number" placeholder=" ">
-    </div>
-  </div>
+  <br>
 
-  <div class="page-footer">Sivu 1/2</div>
-</div>
+  <button type="submit">Lähetä kauppakirja</button>
+
+</form>
 
 </body>
 </html>

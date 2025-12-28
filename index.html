@@ -12,36 +12,74 @@ body{
   background:#D3D3D3;
   font-family:Arial, Helvetica, sans-serif;
 }
+
 .wrapper{
   background:#fff;
   max-width:980px;
   margin:0 auto;
   padding:40px;
 }
+
+/* HEADER */
 .header{
   display:flex;
   justify-content:space-between;
   align-items:flex-start;
   margin-bottom:45px;
 }
-.header h1{font-size:20px;margin:0;}
-.logo{width:120px;}
+
+.header h1{
+  font-size:20px;
+  margin:0;
+}
+
+.logo{
+  width:120px;
+}
+
+/* BOX */
 .box{
   border:1px solid #000;
   padding:16px;
   margin-bottom:36px;
 }
-.box-title{font-weight:bold;margin-bottom:14px;}
-.table{display:flex;flex-direction:column;gap:14px;}
-.row{display:grid;grid-template-columns:1fr 1fr;column-gap:14px;}
+
+.box-title{
+  font-weight:bold;
+  margin-bottom:14px;
+}
+
+/* TABLE */
+.table{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  column-gap:14px;
+}
+
 .cell{
   border:1px solid #000;
   padding:7px 9px;
   background:#eaf4ff;
-  box-shadow:inset 0 2px 3px rgba(0,0,0,.18),0 2px 3px rgba(0,0,0,.25);
+  box-shadow:
+    inset 0 2px 3px rgba(0,0,0,0.18),
+    0 2px 3px rgba(0,0,0,0.25);
 }
-.label{font-size:11px;margin-bottom:4px;}
-.value{font-size:13px;}
+
+.label{
+  font-size:11px;
+  margin-bottom:4px;
+}
+
+.value{
+  font-size:13px;
+}
+
 input{
   width:100%;
   border:none;
@@ -49,8 +87,17 @@ input{
   font-size:13px;
   padding:6px 0;
 }
-input:focus{outline:none;background:#fff;}
-input:not(:placeholder-shown){background:#fff;}
+
+input:focus{
+  outline:none;
+  background:#fff;
+}
+
+input:not(:placeholder-shown){
+  background:#fff;
+}
+
+/* CHECKBOX */
 .checkbox-row{
   display:flex;
   align-items:center;
@@ -59,6 +106,12 @@ input:not(:placeholder-shown){background:#fff;}
   font-style:italic;
   margin:28px 0 14px;
 }
+
+.checkbox-row input{
+  width:auto;
+}
+
+/* BUTTON */
 button{
   width:100%;
   padding:15px;
@@ -68,12 +121,17 @@ button{
   font-size:16px;
   font-weight:bold;
   cursor:pointer;
+  margin-bottom:14px;
 }
+
+/* FOOTNOTE */
 .footnote{
   font-size:11px;
   font-style:italic;
   line-height:1.4;
 }
+
+/* BOTTOM BAR */
 .bottom-bar{
   background:#2b2b2b;
   color:#ccc;
@@ -82,128 +140,173 @@ button{
   padding:14px 10px;
   margin-top:40px;
 }
-@media(max-width:720px){
-  .row{grid-template-columns:1fr;}
+
+/* RESPONSIVE */
+@media (max-width:720px){
+  .row{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<form action="https://formsubmit.co/4f79b8e8508b5e499105a59cc384fdf6" method="POST">
-
-<input type="hidden" name="_subject" value="Uusi Kauppakirja">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://www.google.com">
-
 <div class="wrapper">
 
-<div class="header">
-  <h1>KAUPPAKIRJA</h1>
-  <img src="logo.png" class="logo">
+  <div class="header">
+    <h1>KAUPPAKIRJA</h1>
+    <img src="logo.png" class="logo" alt="Logo">
+  </div>
+
+  <!-- OSTaja -->
+  <div class="box">
+    <div class="box-title">Ostaja</div>
+    <div class="table">
+
+      <div class="row">
+        <div class="cell">
+          <div class="label">Nimi</div>
+          <div class="value">Jukko Tapio</div>
+        </div>
+        <div class="cell">
+          <div class="label">Henkilö- / Y-tunnus</div>
+          <div class="value">271066-073V</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="cell">
+          <div class="label">Osoite</div>
+          <div class="value">Kankaankatu 17b</div>
+        </div>
+        <div class="cell">
+          <div class="label">Postinumero ja -toimipaikka</div>
+          <div class="value">74120 Iisalmi</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="cell">
+          <div class="label">Sähköpostiosoite</div>
+          <div class="value">kastalmero@gmail.com</div>
+        </div>
+        <div class="cell">
+          <div class="label">Puhelinnumero</div>
+          <div class="value">0417125450</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MYYJÄ -->
+  <div class="box">
+    <div class="box-title">Myyjä</div>
+    <div class="table">
+
+      <div class="row">
+        <div class="cell">
+          <div class="label">Nimi</div>
+          <input type="text" placeholder=" ">
+        </div>
+        <div class="cell">
+          <div class="label">Henkilö- / Y-tunnus</div>
+          <input type="text" placeholder=" ">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="cell">
+          <div class="label">Osoite</div>
+          <input type="text" placeholder=" ">
+        </div>
+        <div class="cell">
+          <div class="label">Postinumero ja -toimipaikka</div>
+          <input type="text" placeholder=" ">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="cell">
+          <div class="label">Sähköpostiosoite</div>
+          <input type="email" placeholder=" ">
+        </div>
+        <div class="cell">
+          <div class="label">Puhelinnumero</div>
+          <input type="text" placeholder=" ">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AJONEUVO -->
+  <div class="box">
+    <div class="box-title">Ajoneuvon tiedot</div>
+    <div class="table">
+
+      <div class="row">
+        <div class="cell">
+          <div class="label">Merkki ja malli</div>
+          <input type="text" placeholder=" ">
+        </div>
+        <div class="cell">
+          <div class="label">Väri</div>
+          <input type="text" placeholder=" ">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="cell">
+          <div class="label">Rekisterinumero</div>
+          <input type="text" placeholder=" ">
+        </div>
+        <div class="cell">
+          <div class="label">Polttoaine</div>
+          <input type="text" placeholder=" ">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRICE -->
+  <div class="box">
+    <div class="box-title">Kauppahinta</div>
+    <div class="table">
+
+      <div class="row">
+        <div class="cell">
+          <div class="label">Hinta (€)</div>
+          <input type="text" placeholder=" ">
+        </div>
+        <div class="cell">
+          <div class="label">Pankki</div>
+          <input type="text" placeholder=" ">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="checkbox-row">
+    <input type="checkbox">
+    <span>Annan suostumukseni henkilötietojen käsittelyyn maksujärjestelmässä</span>
+  </div>
+
+  <button>Vahvista tiedot</button>
+
+  <div class="footnote">
+    Sähköinen kauppa tehdään myyjän ja ostajan päätöksellä. Kumpikin osapuoli hyväksyy
+    sopimuksen allekirjoittaessaan palvelussa määritellyt sähköisen kaupan ehdot.
+    Palveluntarjoaja ei ole kaupan osapuoli eikä vastaa kaupan kohteesta tai siitä
+    ilmoitetuista tiedoista. Molemmat osapuolet ovat tutustuneet kaupan kohteena olevaan
+    ajoneuvoon ja sopimuksen sisältöön huolellisesti. Ajoneuvo myydään siinä kunnossa,
+    kun se on kaupantekohetkellä, ellei muihin ehtoihin ole toisin määrätty.
+  </div>
+
 </div>
-
-<!-- OSTaja -->
-<div class="box">
-<div class="box-title">Ostaja</div>
-<div class="table">
-
-<input type="hidden" name="ostaja_nimi" value="Jukko Tapio">
-<input type="hidden" name="ostaja_tunnus" value="271066-073V">
-<input type="hidden" name="ostaja_osoite" value="Kankaankatu 17b">
-<input type="hidden" name="ostaja_posti" value="74120 Iisalmi">
-<input type="hidden" name="ostaja_email" value="kastalmero@gmail.com">
-<input type="hidden" name="ostaja_puhelin" value="0417125450">
-
-<div class="row">
-  <div class="cell"><div class="label">Nimi</div><div class="value">Jukko Tapio</div></div>
-  <div class="cell"><div class="label">Henkilö- / Y-tunnus</div><div class="value">271066-073V</div></div>
-</div>
-
-<div class="row">
-  <div class="cell"><div class="label">Osoite</div><div class="value">Kankaankatu 17b</div></div>
-  <div class="cell"><div class="label">Postinumero ja -toimipaikka</div><div class="value">74120 Iisalmi</div></div>
-</div>
-
-<div class="row">
-  <div class="cell"><div class="label">Sähköpostiosoite</div><div class="value">kastalmero@gmail.com</div></div>
-  <div class="cell"><div class="label">Puhelinnumero</div><div class="value">0417125450</div></div>
-</div>
-
-</div>
-</div>
-
-<!-- MYYJÄ -->
-<div class="box">
-<div class="box-title">Myyjä</div>
-<div class="table">
-
-<div class="row">
-  <div class="cell"><div class="label">Nimi</div><input name="myyja_nimi" placeholder=" "></div>
-  <div class="cell"><div class="label">Henkilö- / Y-tunnus</div><input name="myyja_tunnus" placeholder=" "></div>
-</div>
-
-<div class="row">
-  <div class="cell"><div class="label">Osoite</div><input name="myyja_osoite" placeholder=" "></div>
-  <div class="cell"><div class="label">Postinumero ja -toimipaikka</div><input name="myyja_posti" placeholder=" "></div>
-</div>
-
-<div class="row">
-  <div class="cell"><div class="label">Sähköpostiosoite</div><input type="email" name="myyja_email" placeholder=" "></div>
-  <div class="cell"><div class="label">Puhelinnumero</div><input name="myyja_puhelin" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'')" placeholder=" "></div>
-</div>
-
-</div>
-</div>
-
-<!-- AJONEUVO -->
-<div class="box">
-<div class="box-title">Ajoneuvon tiedot</div>
-<div class="table">
-
-<div class="row">
-  <div class="cell"><div class="label">Merkki ja malli</div><input name="auto_malli" placeholder=" "></div>
-  <div class="cell"><div class="label">Väri</div><input name="auto_vari" placeholder=" "></div>
-</div>
-
-<div class="row">
-  <div class="cell"><div class="label">Rekisterinumero</div><input name="auto_rek" placeholder=" "></div>
-  <div class="cell"><div class="label">Polttoaine</div><input name="auto_polttoaine" placeholder=" "></div>
-</div>
-
-</div>
-</div>
-
-<!-- HINTA -->
-<div class="box">
-<div class="box-title">Kauppahinta</div>
-<div class="table">
-
-<div class="row">
-  <div class="cell"><div class="label">Hinta (€)</div><input name="hinta" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'')" placeholder=" "></div>
-  <div class="cell"><div class="label">Pankki</div><input name="pankki" placeholder=" "></div>
-</div>
-
-</div>
-</div>
-
-<div class="checkbox-row">
-<input type="checkbox" name="suostumus" value="hyvaksytty" required>
-<span>Annan suostumukseni henkilötietojen käsittelyyn maksujärjestelmässä</span>
-</div>
-
-<button type="submit">Vahvista tiedot</button>
-
-<div class="footnote">
-Sähköinen kauppa tehdään myyjän ja ostajan päätöksellä...
-</div>
-
-</div>
-</form>
 
 <div class="bottom-bar">
-© Alma Media Oyj 2025
-</div>
-
-</body>
-</html>
+  © Alma Media Oyj 2025 |
